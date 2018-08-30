@@ -4,10 +4,10 @@
     Description:
 */
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
+#include <iostream> // gives us cout
+#include <fstream>  // allows us to read/write a file
+#include <string>   // allows us to use C++ strings
+#include <vector>   // allows us to use the vector STL (standard template library)
 
 using namespace std;
 
