@@ -19,8 +19,8 @@ int main(){
     int word_count = 0;
 
     inFile.open("dictionary.txt");
-    while(inFile){
-        getline(inFile, word);
+    while(!inFile.eof()){  // Just using inFile will duplicate the last line.
+        getline(inFile, word);  // .eof() will be false at the end correctly.
         //cout << word << endl;
         word_count++;
     }
