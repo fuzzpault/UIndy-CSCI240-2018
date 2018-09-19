@@ -1,3 +1,5 @@
+#ifndef LIST_H
+#define LIST_H
 /*
     Pure virtual List class.
 */
@@ -34,3 +36,5 @@ class List{
       
       virtual string getAsString() const = 0; // Returns a string of the list
 };
+
+#endif
