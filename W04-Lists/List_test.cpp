@@ -1,6 +1,6 @@
 /* Name: < Fill me in>
    Date: < Fill me in>
-   Desc: Unit tests for the Rational Class
+   Desc: Unit tests for the List interface
 */
 #include "gtest/gtest.h"
 #include "VList.h"
