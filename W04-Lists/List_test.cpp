@@ -187,6 +187,9 @@ TEST(string, three){
   EXPECT_EQ(a.getAsString(), "[5,6,-6]");
 }
 
+//  Tests for HW: remove, copy constructor, assignment operator
+//  and destructor will be covered in all tests (valgrind ./test_executable)
+
 TEST(remove, empty){
   LIST a;
   EXPECT_ANY_THROW(a.remove(3));
@@ -277,5 +280,68 @@ TEST(remove, middleone){
   EXPECT_EQ(a.at(0), 5);
   EXPECT_EQ(a.at(1), 7);
   EXPECT_EQ(a.at(2), 8);
+}
+
+TEST(copy, size){
+  LIST a;
+  a.push_back(5);
+  LIST b(a);
+  EXPECT_EQ(a.size(), 1);
+  EXPECT_EQ(b.size(), 1);
+}
+
+TEST(copy, values){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  LIST b(a);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 6);
+  EXPECT_EQ(b.at(0), 5);
+  EXPECT_EQ(b.at(1), 6);
+}
+
+TEST(copy, deep_copy){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  LIST b(a);
+  b.push_back(7);
+  b.push_back(8);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 6);
+  EXPECT_EQ(b.at(0), 5);
+  EXPECT_EQ(b.at(1), 6);
+  EXPECT_EQ(b.at(2), 7);
+  EXPECT_EQ(b.at(3), 8);
+  EXPECT_EQ(a.size(), 2);
+  EXPECT_EQ(b.size(), 4);
+}
+
+TEST(assignment, one){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  LIST b;
+  b.push_back(1);
+  EXPECT_EQ(a.size(), 2);
+  EXPECT_EQ(b.size(), 1);
+  b = a;
+  EXPECT_EQ(a.size(), 2);
+  EXPECT_EQ(b.size(), 2);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 6);
+  EXPECT_EQ(b.at(0), 5);
+  EXPECT_EQ(b.at(1), 6);
+}
+
+TEST(assignment, selfassign){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a = a; // a shouldn't change
+  EXPECT_EQ(a.size(), 2);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 6);
 }
 
