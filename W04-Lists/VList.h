@@ -65,7 +65,24 @@ class VList : public List{
         stuff[0] = value;
       }
       
-      void remove(int loc){}; // Removes the element at position loc
+      void remove(int loc){ // Removes the element at position loc
+          // if loc is invalid, throw an error.  Allow negative indexes.
+        if(loc >= (int)stuff.size() || loc < -(int)(stuff.size())){
+          throw logic_error("Index not valid");
+        }
+        if(loc < 0){
+          loc = stuff.size() + loc;
+        }
+        if(loc == 0 && stuff.size() == 1){
+          stuff.clear();
+          return;
+        }
+        for(int i = loc; i < stuff.size() - 1; i++){ // shift everything down 1
+          stuff[i] = stuff[i + 1];
+        }
+        // remove the last element
+        stuff.erase(stuff.begin() + stuff.size() - 1);
+      }
       
       unsigned count(int value) const{ // Returns the number of times value
                 // is in the list
@@ -81,7 +98,7 @@ class VList : public List{
         for(unsigned i = 0; i < stuff.size(); i++){
           if(stuff[i] == value)return i;
         }
-        throw logic_error("Value not found");
+        throw logic_error("Value not foundd");
       }
       
       string getAsString() const{ // Returns a string of the list

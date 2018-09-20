@@ -187,3 +187,95 @@ TEST(string, three){
   EXPECT_EQ(a.getAsString(), "[5,6,-6]");
 }
 
+TEST(remove, empty){
+  LIST a;
+  EXPECT_ANY_THROW(a.remove(3));
+}
+
+TEST(remove, one){
+  LIST a;
+  a.push_back(5);
+  a.remove(0);
+  EXPECT_EQ(a.size(), 0);
+}
+
+TEST(remove, neg){
+  LIST a;
+  a.push_back(5);
+  a.remove(-1);
+  EXPECT_EQ(a.size(), 0);
+}
+
+TEST(remove, bad){
+  LIST a;
+  a.push_back(5);
+  EXPECT_ANY_THROW(a.remove(1));
+  EXPECT_ANY_THROW(a.remove(-2));
+}
+
+TEST(remove, lastone){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.remove(-1);
+  EXPECT_EQ(a.size(), 1);
+  EXPECT_EQ(a.at(0), 5);
+}
+
+TEST(remove, lasttwo){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.remove(1);
+  EXPECT_EQ(a.size(), 1);
+  EXPECT_EQ(a.at(0), 5);
+}
+
+TEST(remove, first){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.remove(0);
+  EXPECT_EQ(a.size(), 1);
+  EXPECT_EQ(a.at(0), 6);
+}
+
+TEST(remove, firstmany){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.push_back(7);
+  a.push_back(8);
+  a.remove(0);
+  EXPECT_EQ(a.size(), 3);
+  EXPECT_EQ(a.at(0), 6);
+  EXPECT_EQ(a.at(1), 7);
+  EXPECT_EQ(a.at(2), 8);
+}
+
+TEST(remove, lastmany){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.push_back(7);
+  a.push_back(8);
+  a.remove(3);
+  EXPECT_EQ(a.size(), 3);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 6);
+  EXPECT_EQ(a.at(2), 7);
+}
+
+TEST(remove, middleone){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.push_back(7);
+  a.push_back(8);
+  a.remove(1);
+  EXPECT_EQ(a.size(), 3);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 7);
+  EXPECT_EQ(a.at(2), 8);
+}
+
