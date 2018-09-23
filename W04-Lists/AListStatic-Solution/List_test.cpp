@@ -3,9 +3,11 @@
    Desc: Unit tests for the List interface
 */
 #include "gtest/gtest.h"
-#include "VList.h"
+//#include "VList.h"
+#include "AListStatic.h"
 
-#define LIST VList
+//#define LIST VList
+#define LIST AListStatic
 
 
 TEST(size, 0){
