@@ -3,9 +3,13 @@
    Desc: Unit tests for the List interface
 */
 #include "gtest/gtest.h"
-#include "VList.h"
+//#include "VList.h"
+//#include "AListStatic.h"
+#include "AListDynamic.h"
 
-#define LIST VList
+//#define LIST VList
+//#define LIST AListStatic
+#define LIST AListDynamic
 
 
 TEST(size, 0){
@@ -346,4 +350,51 @@ TEST(assignment, selfassign){
 }
 
 // remove in middle neg
+TEST(remove, middle_neg){
+  LIST a;
+  a.push_back(5);
+  a.push_back(6);
+  a.push_back(7);
+  a.push_back(8);
+  a.push_back(9);
+  a.push_back(10);
+  a.remove(-2);
+  a.remove(-2);
+  EXPECT_EQ(a.size(), 4);
+  EXPECT_EQ(a.at(0), 5);
+  EXPECT_EQ(a.at(1), 6);
+  EXPECT_EQ(a.at(2), 7);
+  EXPECT_EQ(a.at(3), 10);
+}
+
+// LARGE tests
+TEST(large, size_back){
+  LIST a;
+  for(unsigned i = 0; i < 10000; i++){
+    a.push_back(i);
+  }
+  EXPECT_EQ(a.size(), 10000);
+}
+
+TEST(large, values_back){
+  LIST a;
+  for(unsigned i = 0; i < 1000; i++){
+    a.push_back((i * 7) % 91);
+  }
+  for(unsigned i = 0; i < 1000; i++){
+    EXPECT_EQ(a.at(i), (i * 7) % 91);
+  }
+}
+
+TEST(large, values_front){
+  LIST a;
+  for(unsigned i = 0; i < 1000; i++){
+    a.push_front((i * 7) % 91);
+  }
+  for(unsigned i = 0; i < 1000; i++){
+    EXPECT_EQ(a.at(1000 - i - 1), (i * 7) % 91);
+  }
+  EXPECT_EQ(a.size(), 1000);
+}
+  
 
