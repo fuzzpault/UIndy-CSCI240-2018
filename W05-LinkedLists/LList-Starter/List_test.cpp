@@ -288,6 +288,7 @@ TEST(remove, middleone){
   EXPECT_EQ(a.at(2), 8);
 }
 
+
 TEST(copy, size){
   LIST a;
   a.push_back(5);
@@ -397,6 +398,27 @@ TEST(large, values_front){
     EXPECT_EQ(a.at(1000 - i - 1), (i * 7) % 91);
   }
   EXPECT_EQ(a.size(), 1000);
+}
+
+TEST(clear, none){
+  LIST a;
+  a.clear();
+  EXPECT_EQ(a.size(), 0);
+}
+
+TEST(clear, one){
+  LIST a;
+  a.push_back(5);
+  a.clear();
+  EXPECT_EQ(a.size(), 0);
+}
+
+TEST(clear, two){
+  LIST a;
+  a.push_back(5);
+  a.push_front(7);
+  a.clear();
+  EXPECT_EQ(a.size(), 0);
 }
   
 
