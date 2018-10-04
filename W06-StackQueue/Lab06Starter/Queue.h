@@ -14,7 +14,6 @@ using namespace std;
 
 // Fill me in
 
-// By subclassing of List, we verify we follow the required List interface.
 class Queue{
     private:
       // Fill me in
