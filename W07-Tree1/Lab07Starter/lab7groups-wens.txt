@@ -1,0 +1,45 @@
+What size groups would you like?
+
+--------- Group # 1 ---------
+Hines, Dillon
+Bump, Vanessa
+
+--------- Group # 2 ---------
+Alrashidi, Ahmed
+Smith, Adileah R Smith
+
+--------- Group # 3 ---------
+Taylor, Luke
+Wininger, Ezekiel Wininger
+
+--------- Group # 4 ---------
+Binzer, Jacob
+Blakey, Justin A Blakey
+
+--------- Group # 5 ---------
+Speck, Benton
+Rubin, Johnathan U Rubin
+
+--------- Group # 6 ---------
+Kwak, Min Hee Kwak
+Carlton, Justin M Carlton
+
+--------- Group # 7 ---------
+Recker, Aaron Recker
+Bowman, David B Bowman
+
+--------- Group # 8 ---------
+Gurung, Amit
+Grey, Garrett M Grey
+
+--------- Group # 9 ---------
+Parks, Zachary
+Salas, Juan
+
+--------- Group # 10 ---------
+Bati, Sagun Bati
+Lake, Charles
+
+--------- Group # 11 ---------
+Rodricks, Deandra L Rodricks
+Moore, Melanie C Moore
