@@ -34,7 +34,12 @@ class BST{
     }
   
     BST(const BST &other){
-      
+       // fill me in
+    }
+    
+    BST& operator=(const BST &other){
+        // Fill me in
+        return *this;
     }
   
     // Insert word into the BST
