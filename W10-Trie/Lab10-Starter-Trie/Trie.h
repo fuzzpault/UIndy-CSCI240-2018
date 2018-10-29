@@ -107,6 +107,27 @@ class Trie{
         return find(root, value);
     }
     
+    // Updated Lab10 functions
+    
+    void remove(const string &value){
+        // Fill me in
+    }
+    
+    unsigned height()const{
+        // Fill me in
+        return 0;
+    }
+    
+    void freeUpMemory(){
+        // Fill me in
+    }
+    
+    vector<string> getAllWords(const string &prefix)const{
+        // Fill me in
+        vector<string> ret;
+        return ret;
+    }
+    
     
     private:
     
